@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation</title>
+    <style>
+        body {
+            background-color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Adjust spacing between image and form */
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .image-section {
+            flex: 1;
+        }
+
+        .image-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .form-section {
+            flex: 1.2; /* Give the form a slightly larger proportion */
+            margin-left: 40px; /* Add some space between image and form */
+        }
+
+        .form-section h1 {
+            color: #ff8c00;
+            font-size: 28px;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 500px;
+        }
+
+        form label {
+            margin-top: 15px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        form input, form textarea {
+            margin-top: 5px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        form textarea {
+            resize: vertical;
+        }
+
+        form button {
+            margin-top: 15px;
+            padding: 12px;
+            background-color: #ff8c00;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        form button:hover {
+            background-color: #e67600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <img src="images/Premium Vector _ Waiter serving a customer in a restaurant.jpg" alt="Order Image">
+        </div>
+        <div class="form-section">
+            <h1>Order Now</h1>
+            <form id="orderDetailsForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required>
+        
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your email" required>
+        
+                <label for="number">Phone Number:</label>
+                <input type="text" id="number" name="number" placeholder="Your phone number" required>
+        
+                <label for="dish">Dish Name:</label>
+                <input type="text" id="dish" name="dish" placeholder="Dish name" required>
+        
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity" required>
+        
+                <label for="message">Address:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Your Address"></textarea>
+        
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container" id="orderSuccess" style="display: none;">
+        <h1>Order Successful!</h1>
+        <p id="orderMessage"></p>
+        <ul style="list-style: none; padding: 0;" id="orderSummary"></ul>
+        <p>We will deliver your order to the provided address soon.</p>
+        <p>Feel free to contact us for any queries!</p>
+    </div>
+
+    <script>
+        // Select the form and other elements
+        const form = document.getElementById('orderDetailsForm');
+        const orderSuccess = document.getElementById('orderSuccess');
+        const orderMessage = document.getElementById('orderMessage');
+        const orderSummary = document.getElementById('orderSummary');
+
+        // Handle form submission
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the form from refreshing the page
+
+            // Get the values from the form inputs
+            const name = document.getElementById('name').value;
+            const dish = document.getElementById('dish').value;
+            const quantity = document.getElementById('quantity').value;
+            const message = document.getElementById('message').value;
+
+            // Update the success message and summary
+            orderMessage.innerHTML = `Thank you, <b>${name}</b>, for placing your order.`;
+            orderSummary.innerHTML = `
+                <li><b>Dish Name:</b> ${dish}</li>
+                <li><b>Quantity:</b> ${quantity}</li>
+                <li><b>Additional Requests:</b> ${message}</li>
+            `;
+
+            // Show the order success container and hide the form
+            orderSuccess.style.display = 'block';
+            form.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
