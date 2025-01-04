@@ -1,18 +1,11 @@
-# Use the official PHP image with Apache
-FROM php:8.1-apache
+# Use the official Nginx image
+FROM nginx:latest
 
-# Install necessary extensions
-RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
+# Copy website content to Nginx's default public directory
+COPY . /usr/share/nginx/html
 
-# Copy application files to the Apache web root
-COPY . /var/www/index/
+# Copy custom Nginx config (optional)
+#COPY nginx.conf /etc/nginx/nginx.conf
 
-# Set permissions for the web root
-RUN chown -R www-data:www-data /var/www/index \
-    && chmod -R 755 /var/www/index
-
-# Expose port 80 for HTTP
+# Expose port 80
 EXPOSE 80
-
-# Start Apache in the foreground
-CMD ["apache2-foreground"]
