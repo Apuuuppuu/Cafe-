@@ -21,7 +21,7 @@ section nav{
     justify-content: space-around;
     align-items: center;
     position: fixed;
-    height: 50px;
+    height: 30px;
     right: 0;
     left: 0;
     background: white;
@@ -388,7 +388,7 @@ section .main_btn:hover i{
 
 .review .review_box .review_card{
     width: 350px;
-    height: 435px;
+    height: 400px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
     border-radius: 8px;
     padding: 8px 20px;
@@ -459,66 +459,4 @@ section .main_btn:hover i{
 
 .review .review_box .review_card:hover .review_text p{
     margin-top: 5px;
-}
-
-/*Footer*/
-
-footer{
-    width: 100%;
-    padding: 30px 0 0 20px;
-    background: #eeeeee;
-}
-
-footer .footer_main{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-}
-
-footer .footer_main .footer_tag{
-    text-align: center;
-}
-
-footer .footer_main .footer_tag h2{
-    color: #000;
-    margin-bottom: 25px;
-    font-size: 30px;
-}
-
-footer .footer_main .footer_tag p{
-    margin: 10px 0;
-}
-
-footer .footer_main .footer_tag i{
-    margin: 0 5px;
-    cursor: pointer;
-}
-
-footer .footer_main .footer_tag i:hover{
-    color: #aacc00;
-}
-
-footer .end{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 15px;
-}
-
-footer .end span{
-    color: #aacc00;
-    margin-left: 10px;
-}
-
-::-webkit-scrollbar{
-    width: 13px;
-}
-
-::-webkit-scrollbar-track{
-    border-radius: 15px;
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
-}
-
-::-webkit-scrollbar-thumb{
-    background: #aacc00;
-    border-radius: 15px;
 }
