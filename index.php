@@ -43,7 +43,7 @@
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $name = htmlspecialchars($_POST['name']);
             $dish = htmlspecialchars($_POST['dish']);
-            $address = htmlspecialchars($_POST['message']);
+            $message = htmlspecialchars($_POST['message']);
             echo "<h2>Order Successful!</h2>";
             echo "<p>Thank you, <strong>$name</strong>, for placing your order.</p>";
             echo "<ul>
